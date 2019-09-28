@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <OutputPath>.mono\temp\bin\$(Configuration)</OutputPath>
     <RootNamespace>RunFoxyRun</RootNamespace>
-    <AssemblyName>RunFoxyRun.Wrap</AssemblyName>
+    <AssemblyName>Run Foxy Run!</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <BaseIntermediateOutputPath>.mono\temp\obj</BaseIntermediateOutputPath>
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)\$(Configuration)</IntermediateOutputPath>
@@ -52,6 +52,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Scripts\PlayerControllerWrapper.cs" />
     <Compile Include="Scripts\SandboxSceneWrapper.cs" />
+    <Compile Include="objects\Foxy\FoxyWrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
