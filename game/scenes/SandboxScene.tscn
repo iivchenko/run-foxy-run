@@ -20,4 +20,3 @@ position = Vector2( 248.38, 41.3597 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -5.62057, -17.7827 )
 shape = SubResource( 1 )
-
