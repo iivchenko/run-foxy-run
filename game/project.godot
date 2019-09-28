@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Run Foxy Run!"
-run/main_scene="res://Scenes/SandboxScene.tscn"
+run/main_scene="res://objects/World/World.tscn"
 config/icon="res://icon.png"
 
 [rendering]
