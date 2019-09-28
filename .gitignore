@@ -10,3 +10,4 @@ export_presets.cfg
 # Net
 bin/
 obj/
+.vs/
