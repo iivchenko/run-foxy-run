@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="objects\Obstacles\Obstacle.cs" />
     <Compile Include="Scripts\PlayerControllerWrapper.cs" />
     <Compile Include="Scripts\SandboxSceneWrapper.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
