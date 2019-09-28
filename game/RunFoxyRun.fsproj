@@ -57,6 +57,7 @@
     <None Include="packages.config" />
     <Compile Include="Scripts\SandboxScene.fs" />
     <Compile Include="Scripts\PlayerController.fs" />
+    <Compile Include="objects\Foxy\Foxy.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
 </Project>
