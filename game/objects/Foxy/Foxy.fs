@@ -14,21 +14,6 @@ type public Foxy ()  =
     let mutable motion = Vector2(0.0f, 0.0f)
     let mutable animator : AnimatedSprite = null
 
-    // TODO: move to the future Fogot (F# to Godot library)
-    let ReadAxesInput ()  =
-        let x = if Input.IsActionPressed("ui_right") 
-                    then Input.GetActionStrength("ui_right")
-                else if Input.IsActionPressed("ui_left") 
-                    then -Input.GetActionStrength("ui_left")
-                    else 0.0f
-
-        let y = if Input.IsActionPressed("ui_up") 
-                    then -Input.GetActionStrength("ui_up")
-                else if Input.IsActionPressed("ui_down") 
-                    then Input.GetActionStrength("ui_down")
-                    else 0.0f
-        (x, y)
-
     [<Export>]
     member this.Gravity
         with get () = gravity
@@ -50,24 +35,15 @@ type public Foxy ()  =
     override this._PhysicsProcess(delta:float32) = 
 
         motion.y <- motion.y + gravity
-
-        match ReadAxesInput() with
-        | (x, _) when x <> 0.0f ->
-            motion.x <- maxSpeed * x
-            animator.FlipH <- x < 0.0f
-            animator.Play("run")
-        | _ ->
-            animator.Play("idle")
+        motion.x <- maxSpeed
+        animator.Play("run")
 
         match base.IsOnFloor() with
-        | true -> 
-             motion.x <- Mathf.Lerp(motion.x, 0.0f, 0.2f)
-        | false when motion.y < 0.0f -> 
-            motion.x <- Mathf.Lerp(motion.x, 0.0f, 0.05f)
+        | false when motion.y < 0.0f ->
             animator.Play("jump")
-        | false -> 
-            motion.x <- Mathf.Lerp(motion.x, 0.0f, 0.05f)
+        | false ->
             animator.Play("fall")
+        | _ -> ()
 
         motion <- base.MoveAndSlide(motion, up)
 
