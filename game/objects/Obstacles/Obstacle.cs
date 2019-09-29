@@ -2,7 +2,7 @@ using Godot;
 
 namespace RunFoxyRun
 {
-    public class Obstacle : Node
+    public class Obstacle : Node2D
     {
         private void OnOverlapped(PhysicsBody2D body)
         {

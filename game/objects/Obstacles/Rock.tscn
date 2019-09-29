@@ -4,20 +4,19 @@
 [ext_resource path="res://assets/sprites/Environment/rock.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13.2187, 7.44262 )
+extents = Vector2( 16, 7.59151 )
 
 [node name="Rock" type="Node2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.1419, 1.06307 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="StaticBody2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0.873781, 0 )
+position = Vector2( 16, 7.59151 )
 shape = SubResource( 1 )
 [connection signal="body_entered" from="StaticBody2D" to="." method="OnOverlapped"]
