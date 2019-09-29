@@ -28,7 +28,7 @@ public class StoneSpawner : Node2D
     {
         var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
 
-        if ((Position.x - foxy.Position.x) < 15 * Block)
+        if ((Position.x - foxy.Position.x) < 50 * Block)
         {
             this.MoveLocalX(16);
         }

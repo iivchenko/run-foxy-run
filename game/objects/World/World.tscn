@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://objects/Foxy/Foxy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Spawner/Spawner.tscn" type="PackedScene" id=2]
@@ -7,49 +7,99 @@
 [ext_resource path="res://objects/Spawner/SpawnerWrap.cs" type="Script" id=5]
 [ext_resource path="res://objects/Grounds/GroundUpper.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Grounds/GroundMiddle.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/sprites/Background.png" type="Texture" id=8]
 
 [node name="World" type="Node2D"]
-position = Vector2( 0, 12.6249 )
+position = Vector2( -16, 176 )
 
 [node name="Foxy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 37.2633, 7.21389 )
+position = Vector2( 224.69, 336 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="StoneSpawner" parent="." instance=ExtResource( 2 )]
-position = Vector2( 112, 515.375 )
+position = Vector2( 0, 496 )
 script = ExtResource( 3 )
 Node = ExtResource( 4 )
 TargetScene = "/root/World"
 
 [node name="Ground" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Spawner" parent="Ground" instance=ExtResource( 2 )]
-position = Vector2( 112, 531.375 )
+position = Vector2( 0, 512 )
 script = ExtResource( 5 )
 Node = ExtResource( 6 )
 TargetScene = "/root/World"
 
 [node name="Spawner2" parent="Ground" instance=ExtResource( 2 )]
-position = Vector2( 112, 547.375 )
+position = Vector2( 0, 528 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
 
 [node name="Spawner3" parent="Ground" instance=ExtResource( 2 )]
-position = Vector2( 112, 563.375 )
+position = Vector2( 0, 544 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
 
 [node name="Spawner4" parent="Ground" instance=ExtResource( 2 )]
-position = Vector2( 112, 579.375 )
+position = Vector2( 0, 560 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
 
 [node name="Spawner5" parent="Ground" instance=ExtResource( 2 )]
-position = Vector2( 112, 595.375 )
+position = Vector2( 0, 576 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+
+[node name="Spawner6" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 0, 592 )
+script = ExtResource( 5 )
+Node = ExtResource( 7 )
+TargetScene = "/root/World"
+
+[node name="Spawner7" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 0, 608 )
+script = ExtResource( 5 )
+Node = ExtResource( 7 )
+TargetScene = "/root/World"
+
+[node name="Spawner8" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 0, 624 )
+script = ExtResource( 5 )
+Node = ExtResource( 7 )
+TargetScene = "/root/World"
+
+[node name="Spawner9" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 0, 640 )
+script = ExtResource( 5 )
+Node = ExtResource( 7 )
+TargetScene = "/root/World"
+
+[node name="Spawner10" parent="Ground" instance=ExtResource( 2 )]
+position = Vector2( 0, 656 )
+script = ExtResource( 5 )
+Node = ExtResource( 7 )
+TargetScene = "/root/World"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2( 3, 3 )
+transform = Transform2D( 3, 0, 0, 3, 0, 0 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_mirroring = Vector2( 384, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}

@@ -19,6 +19,13 @@ config/name="Run Foxy Run!"
 run/main_scene="res://objects/World/World.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"

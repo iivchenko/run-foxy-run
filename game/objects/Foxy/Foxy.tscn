@@ -41,7 +41,7 @@ animations = [ {
 extents = Vector2( 8.69255, 10.1904 )
 
 [node name="Foxy" type="KinematicBody2D"]
-position = Vector2( 11.9805, 1.55688 )
+position = Vector2( 11.7711, 1.55688 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -64,6 +64,8 @@ __meta__ = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 150, 0 )
 current = true
+zoom = Vector2( 0.35, 0.35 )
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
