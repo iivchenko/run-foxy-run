@@ -12,6 +12,9 @@ namespace RunFoxyRun
         [Export]
         public string TargetScene { get; set; }
 
+        [Export]
+        public bool Spawning { get; set; }
+
         private Node _target;
 
         public override void _Ready()
@@ -33,10 +36,13 @@ namespace RunFoxyRun
 
         public void Spawn()
         {
-            var node = Node.Instance() as Node2D;
-            node.SetPosition(Position);
+            if (Spawning)
+            {
+                var node = Node.Instance() as Node2D;
+                node.SetPosition(Position);
 
-            _target.AddChild(node);
+                _target.AddChild(node);
+            }            
         }
     }
 }

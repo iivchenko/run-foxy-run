@@ -11,6 +11,9 @@ public class StoneSpawner : Node2D
     [Export]
     public string TargetScene { get; set; }
 
+    [Export]
+    public bool Spawning { get; set; }
+
     private Node _target;
     private Random _random;
 
@@ -38,7 +41,6 @@ public class StoneSpawner : Node2D
     {
         var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
 
-        //if ((Position.x - foxy.Position.x) < 5 * Block && _random.Next(2) == 1)
         if (_random.Next(100) == 1)
         {
             Spawn();
@@ -47,9 +49,12 @@ public class StoneSpawner : Node2D
 
     public void Spawn()
     {
-        var node = Node.Instance() as Node2D;
-        node.SetPosition(Position);
+        if (Spawning)
+        {
+            var node = Node.Instance() as Node2D;
+            node.SetPosition(Position);
 
-        _target.AddChild(node);
+            _target.AddChild(node);
+        }       
     }
 }

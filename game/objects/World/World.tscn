@@ -22,69 +22,79 @@ position = Vector2( 0, 496 )
 script = ExtResource( 3 )
 Node = ExtResource( 4 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Ground" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Spawner" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 512 )
 script = ExtResource( 5 )
 Node = ExtResource( 6 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner2" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 528 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner3" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 544 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner4" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 560 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner5" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 576 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner6" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 592 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner7" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 608 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner8" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 624 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner9" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 640 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="Spawner10" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 656 )
 script = ExtResource( 5 )
 Node = ExtResource( 7 )
 TargetScene = "/root/World"
+Spawning = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2( 3, 3 )
