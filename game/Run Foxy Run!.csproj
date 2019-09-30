@@ -56,6 +56,7 @@
     <Compile Include="Scripts\PlayerControllerWrapper.cs" />
     <Compile Include="Scripts\SandboxSceneWrapper.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
+    <Compile Include="UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
