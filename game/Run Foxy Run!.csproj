@@ -53,8 +53,6 @@
     <Compile Include="objects\Obstacles\Obstacle.cs" />
     <Compile Include="objects\Spawner\SpawnerWrap.cs" />
     <Compile Include="objects\Spawner\StoneSpawner.cs" />
-    <Compile Include="Scripts\PlayerControllerWrapper.cs" />
-    <Compile Include="Scripts\SandboxSceneWrapper.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
     <Compile Include="UI\MainMenu.cs" />
   </ItemGroup>
