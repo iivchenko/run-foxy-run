@@ -22,9 +22,9 @@ position = Vector2( 0, 496 )
 script = ExtResource( 3 )
 Node = ExtResource( 4 )
 TargetScene = "/root/World"
-Spawning = true
 
 [node name="Ground" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Spawner" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 512 )
@@ -97,6 +97,7 @@ TargetScene = "/root/World"
 Spawning = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scale = Vector2( 3, 3 )
 transform = Transform2D( 3, 0, 0, 3, 0, 0 )
 
