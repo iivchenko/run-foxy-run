@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="objects\Destructor\Destructor.cs" />
     <Compile Include="objects\Obstacles\Obstacle.cs" />
     <Compile Include="objects\Spawner\SpawnerWrap.cs" />
     <Compile Include="objects\Spawner\StoneSpawner.cs" />
