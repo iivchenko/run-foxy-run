@@ -50,15 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="common\ObjectPool.cs" />
-    <Compile Include="objects\Collector\Collector.cs" />
     <Compile Include="objects\Destructor\Destructor.cs" />
     <Compile Include="objects\Obstacles\Obstacle.cs" />
     <Compile Include="objects\Spawner\SpawnerWrap.cs" />
-    <Compile Include="objects\Spawner\SpawnerWrapWithPool.cs" />
     <Compile Include="objects\Spawner\StoneSpawner.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
-    <Compile Include="objects\World\TestWorld_Case03.cs" />
     <Compile Include="UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
