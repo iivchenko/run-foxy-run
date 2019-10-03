@@ -6,6 +6,7 @@ open System
 type public Foxy ()  =
     inherit KinematicBody2D ()
 
+    // Export stuff
     let mutable gravity = 20.0f
     let mutable maxSpeed = 200.0f
     let mutable jumpHigh = 550.0f

@@ -24,7 +24,6 @@ Node = ExtResource( 4 )
 TargetScene = "/root/World"
 
 [node name="Ground" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Spawner" parent="Ground" instance=ExtResource( 2 )]
 position = Vector2( 0, 512 )

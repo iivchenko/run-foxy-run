@@ -1,6 +1,6 @@
 using Godot;
 
-public class Collector : Area2D
+public class Destructor : Area2D
 {
     private const int Block = 16; // 16 pixels
 

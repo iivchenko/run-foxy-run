@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72, 168 )
 
-[node name="Collector" type="Area2D"]
+[node name="Desctructor" type="Area2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

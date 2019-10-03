@@ -1,13 +1,13 @@
-using Godot;
+﻿using Godot;
 
 namespace RunFoxyRun
-{
-    public class SpawnerWrap : Area2D
+{ 
+    public sealed class SpawnerWrapWithPool : Area2D
     {
         private const int Block = 16; // 16 pixels
 
         [Export]
-        public PackedScene Node { get; set; }
+        public string Node { get; set; }
 
         [Export]
         public string TargetScene { get; set; }
@@ -38,10 +38,8 @@ namespace RunFoxyRun
         {
             if (Spawning)
             {
-                var node = Node.Instance() as Node2D;
+                var node = ObjectPool.Pool.Retriev(Node) as Node2D;
                 node.SetPosition(Position);
-
-                _target.AddChild(node);
             }
         }
     }
