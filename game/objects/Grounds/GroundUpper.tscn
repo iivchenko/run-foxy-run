@@ -9,17 +9,12 @@ region = Rect2( 48, 16, 16, 16 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 8 )
 
-[node name="GroundUpper" type="Node2D"]
-__meta__ = {
-"_edit_group_": true
-}
+[node name="GroundUpper" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
 centered = false
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 8 )
 shape = SubResource( 2 )

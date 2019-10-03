@@ -16,6 +16,11 @@ public class Destructor : Area2D
 
     private void OnBodyEntered(Node body)
     {
-        body.GetParent().QueueFree();
+        body.QueueFree();
+    }
+
+    private void OnAreaEntered(Node area)
+    {
+        area.QueueFree();
     }
 }
