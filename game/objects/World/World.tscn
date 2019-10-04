@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://objects/World/World.cs" type="Script" id=1]
 [ext_resource path="res://objects/Foxy/Foxy.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://objects/Grounds/GroundUpper.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/Grounds/GroundMiddle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/Destructor/Destructor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/fonts/ThaleahFat_TTF.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://assets/audio/World.ogg" type="AudioStream" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 11 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,7 +24,7 @@ __meta__ = {
 }
 
 [node name="Foxy" parent="." instance=ExtResource( 2 )]
-position = Vector2( 224.69, 336 )
+position = Vector2( 224.69, 448 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 editor/display_folded = true
@@ -40,7 +46,7 @@ __meta__ = {
 }
 
 [node name="StoneSpawner" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 544 )
+position = Vector2( 0, 656 )
 script = ExtResource( 5 )
 Node = ExtResource( 6 )
 TargetScene = "/root/World"
@@ -50,74 +56,93 @@ Spawning = true
 editor/display_folded = true
 
 [node name="Spawner" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 560 )
+position = Vector2( 0, 672 )
 script = ExtResource( 7 )
 Node = ExtResource( 8 )
 TargetScene = "/root/World"
 Spawning = true
 
 [node name="Spawner2" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 576 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner3" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 592 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner4" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 608 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner5" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 624 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner6" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 640 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner7" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 656 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner8" parent="Ground" instance=ExtResource( 4 )]
-position = Vector2( 0, 672 )
-script = ExtResource( 7 )
-Node = ExtResource( 9 )
-TargetScene = "/root/World"
-Spawning = true
-
-[node name="Spawner9" parent="Ground" instance=ExtResource( 4 )]
 position = Vector2( 0, 688 )
 script = ExtResource( 7 )
 Node = ExtResource( 9 )
 TargetScene = "/root/World"
 Spawning = true
 
-[node name="Spawner10" parent="Ground" instance=ExtResource( 4 )]
+[node name="Spawner3" parent="Ground" instance=ExtResource( 4 )]
 position = Vector2( 0, 704 )
 script = ExtResource( 7 )
 Node = ExtResource( 9 )
 TargetScene = "/root/World"
 Spawning = true
 
+[node name="Spawner4" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 720 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner5" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 736 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner6" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 752 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner7" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 768 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner8" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 784 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner9" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 800 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
+[node name="Spawner10" parent="Ground" instance=ExtResource( 4 )]
+position = Vector2( 0, 816 )
+script = ExtResource( 7 )
+Node = ExtResource( 9 )
+TargetScene = "/root/World"
+Spawning = true
+
 [node name="Descturctor" parent="." instance=ExtResource( 10 )]
-position = Vector2( -416, 480 )
+position = Vector2( -416, 592 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Scores" type="Label" parent="HUD"]
+margin_left = 16.0
+margin_top = 14.0
+margin_right = 74.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Scores: 0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+autoplay = true
