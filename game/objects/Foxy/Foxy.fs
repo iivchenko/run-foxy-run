@@ -14,6 +14,7 @@ type public Foxy ()  =
     let up = Nullable<Vector2>(Vector2(0.0f, -1.0f))
     let mutable motion = Vector2(0.0f, 0.0f)
     let mutable animator : AnimatedSprite = null
+    let mutable audio : AudioStreamPlayer = null
 
     [<Export>]
     member this.Gravity
@@ -32,6 +33,7 @@ type public Foxy ()  =
 
     override this._Ready() =
         animator <- base.GetNode<AnimatedSprite>(new NodePath("Animator"))
+        audio <- base.GetNode<AudioStreamPlayer>(new NodePath("Audio"))
 
     override this._PhysicsProcess(delta:float32) = 
 
@@ -52,3 +54,4 @@ type public Foxy ()  =
         if e.IsActionPressed("jump") && base.IsOnFloor()
             then
                  motion.y <- -jumpHigh
+                 audio.Play()
