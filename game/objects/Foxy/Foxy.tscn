@@ -42,6 +42,7 @@ extents = Vector2( 8.69255, 10.1904 )
 
 [node name="Foxy" type="KinematicBody2D"]
 position = Vector2( 11.7711, 1.55688 )
+collision_layer = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

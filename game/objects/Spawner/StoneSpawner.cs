@@ -1,60 +1,64 @@
 using Godot;
 using System;
 
-public class StoneSpawner : Node2D
+namespace RunFoxyRun
 {
-    private const int Block = 16; // 16 pixels
-
-    [Export]
-    public PackedScene Node { get; set; }
-
-    [Export]
-    public string TargetScene { get; set; }
-
-    [Export]
-    public bool Spawning { get; set; }
-
-    private Node _target;
-    private Random _random;
-
-    public StoneSpawner()
+    public class StoneSpawner : Node2D
     {
-        _random = new Random();
-    }
+        private const int Block = 16; // 16 pixels
 
-    public override void _Ready()
-    {
-        _target = GetNode(new NodePath(TargetScene));
-    }
+        [Export]
+        public PackedScene Node { get; set; }
 
-    public override void _PhysicsProcess(float delta)
-    {
-        var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
+        [Export]
+        public string TargetScene { get; set; }
 
-        if ((Position.x - foxy.Position.x) < 50 * Block)
+        [Export]
+        public bool Spawning { get; set; }
+
+        private Node _target;
+        private Random _random;
+
+        public StoneSpawner()
         {
-            this.MoveLocalX(16);
+            _random = new Random();
         }
-    }
 
-    public override void _Process(float delta)
-    {
-        var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
-
-        if (_random.Next(100) == 1)
+        public override void _Ready()
         {
-            Spawn();
+            _target = GetNode(new NodePath(TargetScene));
         }
-    }
 
-    public void Spawn()
-    {
-        if (Spawning)
+        public override void _PhysicsProcess(float delta)
         {
-            var node = Node.Instance() as Node2D;
-            node.SetPosition(Position);
+            var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
 
-            _target.AddChild(node);
-        }       
+            if ((Position.x - foxy.Position.x) < 50 * Block)
+            {
+                this.MoveLocalX(16);
+            }
+        }
+
+        public override void _Process(float delta)
+        {
+            var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
+
+            if (_random.Next(100) == 1)
+            {
+                Spawn();
+            }
+        }
+
+        public void Spawn()
+        {
+            if (Spawning)
+            {
+                var node = Node.Instance() as Obstacle;
+                node.SetPosition(Position);
+
+                node.Connect("OverCrossed", _target, "ScorePlayer");
+                _target.AddChild(node);
+            }
+        }
     }
 }

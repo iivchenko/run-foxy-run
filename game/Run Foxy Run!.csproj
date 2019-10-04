@@ -55,6 +55,7 @@
     <Compile Include="objects\Spawner\SpawnerWrap.cs" />
     <Compile Include="objects\Spawner\StoneSpawner.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
+    <Compile Include="objects\World\World.cs" />
     <Compile Include="UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>

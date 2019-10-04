@@ -6,6 +6,7 @@
 extents = Vector2( 72, 168 )
 
 [node name="Desctructor" type="Area2D"]
+collision_mask = 29
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

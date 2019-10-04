@@ -7,7 +7,7 @@ type public Foxy ()  =
     inherit KinematicBody2D ()
 
     // Export stuff
-    let mutable gravity = 20.0f
+    let mutable gravity = 2000.0f
     let mutable maxSpeed = 200.0f
     let mutable jumpHigh = 550.0f
 
@@ -35,7 +35,7 @@ type public Foxy ()  =
 
     override this._PhysicsProcess(delta:float32) = 
 
-        motion.y <- motion.y + gravity
+        motion.y <- motion.y + gravity * delta
         motion.x <- maxSpeed
         animator.Play("run")
 
@@ -49,6 +49,6 @@ type public Foxy ()  =
         motion <- base.MoveAndSlide(motion, up)
 
     override this._Input(e: InputEvent) =
-        if e.IsActionPressed("ui_up") && base.IsOnFloor()
+        if e.IsActionPressed("jump") && base.IsOnFloor()
             then
                  motion.y <- -jumpHigh

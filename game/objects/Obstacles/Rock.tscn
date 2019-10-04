@@ -1,17 +1,33 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/sprites/Environment/rock.png" type="Texture" id=1]
+[ext_resource path="res://objects/Obstacles/Obstacle.cs" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Environment/rock.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/Collected.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 7.59151 )
 
 [node name="Rock" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 1 )
+Scores = 100
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1.1419, 1.06307 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 16, 7.59151 )
 shape = SubResource( 1 )
+
+[node name="Ray" type="RayCast2D" parent="."]
+position = Vector2( 32, 16 )
+enabled = true
+cast_to = Vector2( 0, -300 )
+collision_mask = 2
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+[connection signal="body_entered" from="." to="." method="OnOverlapped"]
