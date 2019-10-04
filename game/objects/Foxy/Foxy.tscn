@@ -38,8 +38,9 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.69255, 10.1904 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.85677
+height = 8.97954
 
 [node name="Foxy" type="KinematicBody2D"]
 position = Vector2( 11.7711, 1.55688 )
@@ -52,14 +53,15 @@ __meta__ = {
 [node name="Animator" type="AnimatedSprite" parent="."]
 position = Vector2( 0.189636, 0 )
 frames = SubResource( 1 )
-animation = "fall"
+animation = "run"
+frame = 4
 playing = true
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2( -1.02108, 5.41104 )
+position = Vector2( -0.00791931, 4.69807 )
 shape = SubResource( 2 )
 __meta__ = {
 "_edit_group_": true

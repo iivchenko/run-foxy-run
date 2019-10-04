@@ -4,8 +4,9 @@
 [ext_resource path="res://assets/sprites/Environment/rock.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/Collected.wav" type="AudioStream" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 7.59151 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.65026
+height = 13.0763
 
 [node name="Rock" type="Area2D"]
 collision_layer = 4
@@ -19,7 +20,8 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 16, 7.59151 )
+position = Vector2( 16.567, 8.84426 )
+rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Ray" type="RayCast2D" parent="."]
