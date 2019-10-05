@@ -61,9 +61,9 @@
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
     <Compile Include="objects\World\World.cs" />
     <Compile Include="UI\GameOverScreen.cs" />
-    <Compile Include="UI\LeaderBoard.cs" />
+    <Compile Include="UI\LeaderBoardScreen.cs" />
     <Compile Include="UI\LeaderBoardService.cs" />
-    <Compile Include="UI\MainMenu.cs" />
+    <Compile Include="UI\MainScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

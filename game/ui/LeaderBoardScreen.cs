@@ -2,7 +2,7 @@ using Godot;
 
 namespace RunFoxyRun
 {
-    public class LeaderBoard : Control
+    public class LeaderBoardScreen : Control
     {
         public override void _Ready()
         {
@@ -21,7 +21,7 @@ namespace RunFoxyRun
 
         private void OnMainScreenButtonPressed()
         {
-            GetTree().ChangeScene("res://UI/MainMenu.tscn");
+            GetTree().ChangeScene("res://UI/MainScreen.tscn");
         }
     }
 }
