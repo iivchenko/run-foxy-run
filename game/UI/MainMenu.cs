@@ -6,8 +6,13 @@ public class MainMenu : Control
 	{
 	    GetTree().ChangeScene("res://objects/World/World.tscn");
 	}
-	
-	private void OnExiteGamePressed()
+
+    private void OnLeadersButtonPressed()
+    {
+        GetTree().ChangeScene("res://UI/LeaderBoard.tscn");
+    }
+
+    private void OnExiteGamePressed()
 	{
         GetTree().Quit();
 	}
