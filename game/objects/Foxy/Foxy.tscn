@@ -54,7 +54,7 @@ __meta__ = {
 position = Vector2( 0.189636, 0 )
 frames = SubResource( 1 )
 animation = "run"
-frame = 4
+frame = 5
 playing = true
 __meta__ = {
 "_edit_group_": true

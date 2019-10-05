@@ -18,6 +18,7 @@ namespace RunFoxyRun
 
         private Node _target;
         private Random _random;
+        private int _stonesPerFrame = 2;
 
         public StoneSpawner()
         {
@@ -35,17 +36,23 @@ namespace RunFoxyRun
 
             if ((Position.x - foxy.Position.x) < 50 * Block)
             {
-                this.MoveLocalX(16);
-            }
-        }
+                this.MoveLocalX(28);
 
-        public override void _Process(float delta)
-        {
-            var foxy = GetNode(new NodePath("/root/World/Foxy")) as Node2D;
+                if (_random.Next(10) == 1)
+                {
+                    if(_stonesPerFrame > 0)
+                    {
+                        Spawn();
+                        _stonesPerFrame--;
 
-            if (_random.Next(100) == 1)
-            {
-                Spawn();
+                        if (_stonesPerFrame == 0)
+                            _stonesPerFrame = -10;
+                    }
+                }
+                else if (_stonesPerFrame < 2)
+                {
+                    _stonesPerFrame++;
+                }
             }
         }
 

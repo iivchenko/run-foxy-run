@@ -9,7 +9,7 @@ type public Foxy ()  =
     // Export stuff
     let mutable gravity = 2000.0f
     let mutable maxSpeed = 200.0f
-    let mutable jumpHigh = 550.0f
+    let mutable jumpHigh = 600.0f
 
     let up = Nullable<Vector2>(Vector2(0.0f, -1.0f))
     let mutable motion = Vector2(0.0f, 0.0f)
