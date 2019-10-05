@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/GameOverScreen.cs" type="Script" id=1]
+[ext_resource path="res://assets/fonts/ThaleahFat_TTF.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 296.0
+margin_top = 204.0
+margin_right = 727.0
+margin_bottom = 395.0
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 431.0
+margin_bottom = 92.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 431.0
+margin_bottom = 143.0
+
+[node name="Scores" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 113.0
+margin_right = 317.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 2 )
+text = "Scores: 0"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 147.0
+margin_right = 431.0
+margin_bottom = 191.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 174.0
+margin_right = 257.0
+margin_bottom = 44.0
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 20.0
+text = "Restart"
+
+[node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_top = 24.0
+margin_right = 83.0
+margin_bottom = 44.0
+text = "Main Menu"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Restart" to="." method="OnRestartButtonPressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/Main Menu" to="." method="OnMainMenuButtonPressed"]

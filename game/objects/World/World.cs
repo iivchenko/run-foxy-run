@@ -1,19 +1,28 @@
 using Godot;
 
-public class World : Node2D
+namespace RunFoxyRun
 {
-    private int _scores;
-    private Label _scoresLabel;
-
-    public override void _Ready()
+    public class World : Node2D
     {
-        _scores = 0;
-        _scoresLabel = GetNode<Label>(new NodePath("HUD/Scores"));
+        private Label _scoresLabel;
+
+        public override void _Ready()
+        {
+            GlobalState.State.Scores = 0;
+
+            _scoresLabel = GetNode<Label>(new NodePath("HUD/Scores"));
+        }
+
+        public void ScorePlayer(int scores)
+        {
+            GlobalState.State.Scores += scores;
+            _scoresLabel.Text = $"Scores: {GlobalState.State.Scores}";
+        }
+
+        public void OnPlayerCollidedObstacle()
+        {
+            GetTree().ChangeScene("res://UI/GameOverScreen.tscn");
+        }
     }
 
-    public void ScorePlayer(int scores)
-    {
-        _scores += scores;
-        _scoresLabel.Text = $"Scores: {_scores}";
-    }
 }

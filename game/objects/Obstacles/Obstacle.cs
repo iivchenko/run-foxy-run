@@ -13,6 +13,9 @@ namespace RunFoxyRun
         [Signal]
         public delegate void OverCrossed(int scores);
 
+        [Signal]
+        public delegate void Collided();
+
         public override void _Ready()
         {
             _ray = GetNode<RayCast2D>("Ray");
@@ -47,7 +50,7 @@ namespace RunFoxyRun
 
         private void OnOverlapped(PhysicsBody2D body)
         {
-            GetTree().ReloadCurrentScene();
+            EmitSignal(nameof(Collided));
         }
     }
 }

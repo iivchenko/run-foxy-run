@@ -50,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="objects\common\GlobalState.cs" />
     <Compile Include="objects\Destructor\Destructor.cs" />
     <Compile Include="objects\Obstacles\Obstacle.cs" />
     <Compile Include="objects\Spawner\SpawnerWrap.cs" />
     <Compile Include="objects\Spawner\StoneSpawner.cs" />
     <Compile Include="objects\Foxy\FoxyWrap.cs" />
     <Compile Include="objects\World\World.cs" />
+    <Compile Include="UI\GameOverScreen.cs" />
     <Compile Include="UI\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>

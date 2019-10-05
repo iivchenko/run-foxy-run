@@ -57,6 +57,7 @@ namespace RunFoxyRun
                 node.SetPosition(Position);
 
                 node.Connect("OverCrossed", _target, "ScorePlayer");
+                node.Connect("Collided", _target, "OnPlayerCollidedObstacle");
                 _target.AddChild(node);
             }
         }
