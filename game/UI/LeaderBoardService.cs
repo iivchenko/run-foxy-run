@@ -1,4 +1,4 @@
-﻿using Godot;
+using Godot;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +54,7 @@ namespace RunFoxyRun
             if (!board.FileExists(path))
                 return new List<Leader>();
 
-            board.Open(path, (int)File.ModeFlags.Read);
+            board.Open(path,File.ModeFlags.Read);
 
             var leaders = JsonConvert.DeserializeObject<List<Leader>>(board.GetAsText());
 
@@ -67,7 +67,7 @@ namespace RunFoxyRun
         {
             var board = new File();
 
-            board.Open(path, (int)File.ModeFlags.Write);
+            board.Open(path, File.ModeFlags.Write);
 
             board.StoreLine(JsonConvert.SerializeObject(leaders));
 
