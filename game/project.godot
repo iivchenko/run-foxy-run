@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Run Foxy Run!"
-run/main_scene="res://UI/MainScreen.tscn"
+run/main_scene="res://ui/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

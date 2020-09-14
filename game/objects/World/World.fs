@@ -26,4 +26,4 @@ type World () =
         scoresLabel.Text <- System.String.Format("Scores: {0}", GlobalState.State.Scores)
 
     member public this.OnPlayerCollidedObstacle() =
-        base.GetTree().ChangeScene("res://UI/GameOverScreen.tscn")
+        base.GetTree().ChangeScene("res://ui/GameOverScreen.tscn")

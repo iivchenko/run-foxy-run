@@ -11,7 +11,7 @@ namespace RunFoxyRun
 
 		private void OnLeadersButtonPressed()
 		{
-			GetTree().ChangeScene("res://UI/LeaderBoardScreen.tscn");
+			GetTree().ChangeScene("res://ui/LeaderBoardScreen.tscn");
 		}
 
 		private void OnExiteGamePressed()
