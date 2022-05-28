@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gem.png-3b626020b6554923c6d7e92811fd82f8.stex"
+path="res://.import/collected_effect_animation03.png-2a64f5d71a59e500048e078ade62e057.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game_nodes/collectables/gem/gem.png"
-dest_files=[ "res://.import/gem.png-3b626020b6554923c6d7e92811fd82f8.stex" ]
+source_file="res://game_nodes/collectables/collected_effect/collected_effect_animation/collected_effect_animation03.png"
+dest_files=[ "res://.import/collected_effect_animation03.png-2a64f5d71a59e500048e078ade62e057.stex" ]
 
 [params]
 

@@ -85,8 +85,7 @@ position = Vector2( 604, 116 )
 texture = ExtResource( 7 )
 
 [node name="Tree" parent="Environment" instance=ExtResource( 8 )]
-position = Vector2( 1200, -40 )
-scale = Vector2( 4, 4 )
+position = Vector2( 1203, 99 )
 
 [node name="Shrooms" parent="Environment" instance=ExtResource( 9 )]
 position = Vector2( 864, 136 )
@@ -122,7 +121,7 @@ position = Vector2( 1163, 139 )
 position = Vector2( 1149, 139 )
 
 [node name="Shrooms3" parent="Environment" instance=ExtResource( 9 )]
-position = Vector2( 1249, 140 )
+position = Vector2( 1213, 140 )
 
 [node name="PrepareToJump" type="Node2D" parent="Environment"]
 position = Vector2( 5000, 0 )
