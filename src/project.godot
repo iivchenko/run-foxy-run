@@ -61,8 +61,9 @@ game_jump={
 [layer_names]
 
 2d_physics/layer_1="ground"
-2d_physics/layer_2="objects"
+2d_physics/layer_2="collectibles"
 2d_physics/layer_3="player"
+2d_physics/layer_4="threat"
 
 [physics]
 

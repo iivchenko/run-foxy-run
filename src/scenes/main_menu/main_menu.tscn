@@ -34,13 +34,16 @@ margin_right = 600.0
 margin_bottom = 359.0
 text = "Exit"
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TileMap" type="TileMap" parent="Environment"]
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 851992, 0, 0, 851993, 0, 1, 851994, 0, 1, 851995, 0, 1, 851996, 0, 1, 851997, 0, 1, 851998, 0, 1, 851999, 0, 1, 852000, 0, 1, 852001, 0, 2, 917528, 3, 0, 917530, 0, 65537, 917531, 0, 65537, 917532, 0, 65537, 917533, 0, 65537, 917534, 0, 65537, 917535, 0, 65537, 917536, 4, 0, 983066, 0, 65537, 983067, 0, 65537, 983068, 0, 65537, 983069, 0, 65537, 983070, 0, 65537, 983071, 0, 65537, 1048602, 3, 0, 1048604, 0, 65537, 1048605, 0, 65537, 1048606, 4, 0, 1114140, 0, 131073, 1114141, 0, 131073 )
-
-[node name="Environment" type="Node2D" parent="."]
 
 [node name="Bush" type="Sprite" parent="Environment"]
 position = Vector2( 428, 194 )

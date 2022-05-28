@@ -2,8 +2,7 @@
 # Godot-specific ignores
 .import/
 export.cfg
-export_presets.cfg
-.tools/
+
 
 # Mono-specific ignores
 .mono/
@@ -15,4 +14,5 @@ obj/
 packages/
 
 # Project specific
-publish/
+.publish/
+.tools/
