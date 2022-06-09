@@ -1,0 +1,45 @@
+name: Build and Export
+
+on:
+  push:
+    branches: [ main ]
+env:
+  GODOT_VERSION: 3.4.4
+  
+jobs:
+  winx64:
+    runs-on: ubuntu-latest
+    name: Windows x64 Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Download Godot Templates
+        shell: pwsh
+        run: |
+            $url = "https://downloads.tuxfamily.org/godotengine/3.4.4/mono/Godot_v3.4.4-stable_mono_export_templates.tpz"
+            $zip = "~/.local/share/godot/templates/godot.zip"
+            
+            New-Item -ItemType Directory -Path ~/.local/share/godot/templates -Verbose            
+            Invoke-WebRequest -Uri $url -OutFile ~/.local/share/godot/templates/godot.zip -Verbose
+            Expand-Archive -path $zip -DestinationPath ~/.local/share/godot/templates/ -Verbose
+            Rename-Item -Path ~/.local/share/godot/templates/templates -NewName 3.4.4.stable.mono -Verbose
+            Remove-Item $zip -Verbose
+      - name: Download Godot Headless Engine
+        shell: pwsh
+        run: |
+            $url = "https://downloads.tuxfamily.org/godotengine/3.4.4/mono/Godot_v3.4.4-stable_mono_linux_headless_64.zip"
+            
+            New-Item -ItemType Directory -Force -Path .tools -Verbose            
+            Invoke-WebRequest -Uri $url -OutFile .tools/godot.zip -Verbose
+            Expand-Archive -path .tools/godot.zip -DestinationPath .tools/ -Verbose
+            Remove-Item .tools/godot.zip -Verbose
+      - name: Export
+        shell: pwsh
+        run: |
+            New-Item -ItemType Directory -Force -Path .publish/release_win_x64 -Verbose 
+            & ".tools/Godot_v3.4.4-stable_mono_linux_headless_64/Godot_v3.4.4-stable_mono_linux_headless.64" --export release_win_x64 --path ./src
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: run-foxy-run-winx64
+          path: .publish/release_win_x64
