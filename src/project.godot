@@ -13,6 +13,7 @@ config_version=4
 config/name="RunFoxyRun"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
@@ -64,6 +65,7 @@ game_jump={
 2d_physics/layer_2="collectibles"
 2d_physics/layer_3="player"
 2d_physics/layer_4="threat"
+2d_physics/layer_5="interactibles"
 
 [physics]
 

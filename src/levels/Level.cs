@@ -1,15 +1,16 @@
 using Godot;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
 public class Level : Node2D
 {
     private float _currentTime;
 
+    private Node2D _game;
+    private CanvasLayer _dialogs;
     private Label _timePassedLabel; // TODO: for debug only, so remove it from release version
     private Label _scoreLabel;
+
+    private Area2D _finishPoint;
     
     private int _score;
 
@@ -18,10 +19,13 @@ public class Level : Node2D
         _currentTime = 0;
         _score = 0;
 
-        _timePassedLabel = GetNode<Label>("Ui/TimePassedLabel");
-        _scoreLabel = GetNode<Label>("Ui/ScoreLabel");
+        _game = FindNode("Game") as Node2D;
+        _dialogs = FindNode("Dialogs") as CanvasLayer;
+        _timePassedLabel = FindNode("TimePassedLabel") as Label;
+        _scoreLabel = FindNode("ScoreLabel") as Label;
+        _finishPoint = FindNode("FinishPoint") as Area2D;
 
-        foreach(Node child in GetNode<Node2D>("Collectibles").GetChildren())
+        foreach(Node child in GetNode<Node2D>("Game/Collectibles").GetChildren())
         {
             var area = child as Area2D;
 
@@ -30,6 +34,8 @@ public class Level : Node2D
                 area.Connect("body_entered", this, nameof(OnPlayerCollects));
             }
         }
+
+        _finishPoint.Connect("body_entered", this, nameof(OnPlayerFinishLevel));
     }
 
     public override void _Process(float delta)
@@ -44,5 +50,34 @@ public class Level : Node2D
     {
         _score++;
         _scoreLabel.Text = $"Collected {_score} items!";
+    }
+
+    public void OnPlayerFinishLevel(Node player)
+    {
+        if (player is Player)
+        {
+            GetTree().Paused = true;
+
+            var dialog = GD.Load<PackedScene>("res://levels/dialogs/game_victory_dialog/game_victory_dialog.tscn").Instance() as GameVictoryDialog;
+            dialog.Connect(nameof(GameVictoryDialog.ButtonPressed), this, nameof(OnGameVictoryButtonPressed));
+
+            _dialogs.AddChild(dialog);
+        }
+    }
+
+    private void OnGameVictoryButtonPressed(GameVictoryDialogButtons button)
+    {
+        switch (button)
+        {
+            case GameVictoryDialogButtons.Restart:
+                GetTree().ReloadCurrentScene();
+                break;
+
+            case GameVictoryDialogButtons.Exit:
+                GetTree().ChangeScene("res://scenes/main_menu/main_menu.tscn");
+                break;
+        }
+
+        GetTree().Paused = false;
     }
 }

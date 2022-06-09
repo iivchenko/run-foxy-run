@@ -7,7 +7,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MC1" type="MarginContainer" parent="."]
 margin_right = 960.0
 margin_bottom = 484.0
 size_flags_horizontal = 3
@@ -17,25 +17,25 @@ custom_constants/margin_top = 16
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer2"]
+[node name="VB" type="VBoxContainer" parent="MC1"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 944.0
 margin_bottom = 468.0
 alignment = 1
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2/VBoxContainer3"]
+[node name="VB1" type="HBoxContainer" parent="MC1/VB"]
 margin_top = 208.0
 margin_right = 928.0
 margin_bottom = 224.0
 
-[node name="SfxLabel" type="Label" parent="MarginContainer2/VBoxContainer3/VBoxContainer2"]
+[node name="SfxLabel" type="Label" parent="MC1/VB/VB1"]
 margin_top = 1.0
 margin_right = 39.0
 margin_bottom = 15.0
 text = "Sound"
 
-[node name="SfxVolume" type="HSlider" parent="MarginContainer2/VBoxContainer3/VBoxContainer2"]
+[node name="SfxVolume" type="HSlider" parent="MC1/VB/VB1"]
 margin_left = 43.0
 margin_right = 928.0
 margin_bottom = 16.0
@@ -44,18 +44,18 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.05
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer3"]
+[node name="VB2" type="HBoxContainer" parent="MC1/VB"]
 margin_top = 228.0
 margin_right = 928.0
 margin_bottom = 244.0
 
-[node name="MusicLabel" type="Label" parent="MarginContainer2/VBoxContainer3/VBoxContainer"]
+[node name="MusicLabel" type="Label" parent="MC1/VB/VB2"]
 margin_top = 1.0
 margin_right = 38.0
 margin_bottom = 15.0
 text = "Music"
 
-[node name="MusicVolume" type="HSlider" parent="MarginContainer2/VBoxContainer3/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="MC1/VB/VB2"]
 margin_left = 42.0
 margin_right = 928.0
 margin_bottom = 16.0
@@ -64,7 +64,7 @@ size_flags_vertical = 1
 max_value = 1.0
 step = 0.05
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MC2" type="MarginContainer" parent="."]
 margin_top = 488.0
 margin_right = 960.0
 margin_bottom = 540.0
@@ -73,7 +73,7 @@ custom_constants/margin_top = 16
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
 
-[node name="BackButton" type="Button" parent="MarginContainer"]
+[node name="BackButton" type="Button" parent="MC2"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 58.0
