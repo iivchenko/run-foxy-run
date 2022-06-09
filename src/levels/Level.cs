@@ -43,6 +43,24 @@ public class Level : Node2D
         _currentTime += delta;
 
         _timePassedLabel.Text = $"{TimeSpan.FromSeconds(_currentTime)}";
+
+        if (Input.IsActionPressed("ui_cancel"))
+        {
+            var pause = FindNode("PauseDialog");
+            if(pause != null)
+            {
+                pause.QueueFree();
+                GetTree().Paused = false;
+            }
+            else
+            {
+                var dialog = GD.Load<PackedScene>("res://levels/dialogs/pause_dialog/pause_dialog.tscn").Instance() as PauseDialog;
+                dialog.Connect(nameof(PauseDialog.ButtonPressed), this, nameof(OnPause));
+
+                _dialogs.AddChild(dialog);
+                GetTree().Paused = true;
+            }
+        }
     }
 
 
@@ -52,6 +70,26 @@ public class Level : Node2D
         _scoreLabel.Text = $"Collected {_score} items!";
     }
 
+    public void OnPause(PauseDialogButtons button)
+    {
+        switch(button)
+        {
+            case PauseDialogButtons.Resume:
+                FindNode("PauseDialog", owned: false).QueueFree();
+                GetTree().Paused = false;                
+                break;
+
+            case PauseDialogButtons.Restart:
+                GetTree().Paused = false;
+                GetTree().ReloadCurrentScene();
+                break;
+
+            case PauseDialogButtons.Exit:
+                GetTree().Paused = false;
+                GetTree().ChangeScene("res://scenes/main_menu/main_menu.tscn");
+                break;
+        }
+    }
     public void OnPlayerFinishLevel(Node player)
     {
         if (player is Player)

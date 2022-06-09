@@ -225,7 +225,7 @@ position = Vector2( 10537, -64 )
 position = Vector2( 11792, 48 )
 
 [node name="Player" parent="Game" instance=ExtResource( 1 )]
-position = Vector2( 14384, 76 )
+position = Vector2( 164, 128 )
 
 [node name="Camera2D" type="Camera2D" parent="Game/Player"]
 current = true
