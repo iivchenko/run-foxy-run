@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/main_menu/main_menu_dialog/MainMenuDialog.cs" type="Script" id=1]
+
+[node name="MainMenuDialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 16, 216 )
+script = ExtResource( 1 )
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 309.0
+margin_top = 271.0
+margin_right = 350.0
+margin_bottom = 291.0
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="."]
+margin_left = 565.0
+margin_top = 339.0
+margin_right = 600.0
+margin_bottom = 359.0
+text = "Exit"

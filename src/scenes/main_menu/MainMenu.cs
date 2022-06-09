@@ -3,25 +3,54 @@ using System;
 
 public class MainMenu : Node2D
 {
-    private Button _start;
-    private Button _exit;
+    private CanvasLayer _ui;
 
     public override void _Ready()
     {
-        _start = GetNode<Button>("Ui/StartButton");
-        _exit = GetNode<Button>("Ui/ExitButton");
+        _ui = GetNode<CanvasLayer>("Ui");
 
-        _start.Connect("pressed", this, nameof(StartButtonPressed));
-        _exit.Connect("pressed", this, nameof(ExitButtonPressed));
+        LoadMainMenuDialog();
     }
 
-    private void StartButtonPressed()
+    private void MainMenuDialogButtonPressed(MainMenuDialogButton button)
     {
-        GetTree().ChangeScene("res://levels/level01.tscn");
+        switch(button)
+        {
+            case MainMenuDialogButton.Start:
+
+                RemoveCurrentDialog();
+
+                var dialog = GD.Load<PackedScene>("res://scenes/main_menu/level_selector_dialog/level_selector_dialog.tscn").Instance() as LevelSelectorDialog;
+                dialog.Connect(nameof(LevelSelectorDialog.BackButtonPressed), this, "LevelSelelectorDialogBackButtonPressed");
+
+                _ui.AddChild(dialog);
+                break;
+
+            case MainMenuDialogButton.Exit:
+                GetTree().Quit();
+                break;
+        }
     }
-    
-    private void ExitButtonPressed()
+
+    public void LevelSelelectorDialogBackButtonPressed()
     {
-        GetTree().Quit();
+        RemoveCurrentDialog();
+        LoadMainMenuDialog();
+    }
+
+    private void RemoveCurrentDialog()
+    {
+        foreach(Node child in _ui.GetChildren())
+        {
+            child.QueueFree();
+        }
+    }
+
+    private void LoadMainMenuDialog()
+    {
+        var dialog = GD.Load<PackedScene>("res://scenes/main_menu/main_menu_dialog/main_menu_dialog.tscn").Instance() as MainMenuDialog;
+        _ui.AddChild(dialog);
+
+        dialog.Connect("ButtonPressed", this, nameof(MainMenuDialogButtonPressed));
     }
 }

@@ -11,28 +11,14 @@
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="Ui" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Background" type="TextureRect" parent="Ui"]
+[node name="Background" type="TextureRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 1 )
 stretch_mode = 1
-
-[node name="StartButton" type="Button" parent="Ui"]
-margin_left = 309.0
-margin_top = 271.0
-margin_right = 350.0
-margin_bottom = 291.0
-text = "Start"
-
-[node name="ExitButton" type="Button" parent="Ui"]
-margin_left = 565.0
-margin_top = 339.0
-margin_right = 600.0
-margin_bottom = 359.0
-text = "Exit"
 
 [node name="Environment" type="Node2D" parent="."]
 __meta__ = {
@@ -59,3 +45,5 @@ position = Vector2( 486, 201 )
 [node name="Sign" type="Sprite" parent="Environment"]
 position = Vector2( 519, 198 )
 texture = ExtResource( 4 )
+
+[node name="Ui" type="CanvasLayer" parent="."]
