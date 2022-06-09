@@ -21,3 +21,10 @@ margin_top = 339.0
 margin_right = 600.0
 margin_bottom = 359.0
 text = "Exit"
+
+[node name="SettingsButton" type="Button" parent="."]
+margin_left = 350.0
+margin_top = 392.0
+margin_right = 413.0
+margin_bottom = 412.0
+text = "Settings"
