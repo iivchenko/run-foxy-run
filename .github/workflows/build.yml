@@ -15,32 +15,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download Godot Templates
-        shell: pwsh
         run: |
-            $url = "https://downloads.tuxfamily.org/godotengine/$Env:GODOT_VERSION/mono/Godot_v$Env:GODOT_VERSION-stable_mono_export_templates.tpz"
-            $zip = "~/.local/share/godot/templates/godot.zip"
+            url=https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/mono/Godot_v$GODOT_VERSION-stable_mono_export_templates.tpz
+            zip=~/.local/share/godot/templates/Godot_v$GODOT_VERSION-stable_mono_export_templates.tpz
             
-            New-Item -ItemType Directory -Path ~/.local/share/godot/templates -Verbose            
-            Invoke-WebRequest -Uri $url -OutFile ~/.local/share/godot/templates/godot.zip -Verbose
-            Expand-Archive -path $zip -DestinationPath ~/.local/share/godot/templates/ -Verbose
-            Rename-Item -Path ~/.local/share/godot/templates/templates -NewName $Env:GODOT_VERSION.stable.mono -Verbose
-            Remove-Item $zip -Verbose
+            mkdir -p ~/.local/share/godot/templates
+            wget $url -P ~/.local/share/godot/templates/
+            unzip $zip -d ~/.local/share/godot/templates/
+            mv ~/.local/share/godot/templates/templates ~/.local/share/godot/templates/$GODOT_VERSION.stable.mono
+            rm $zip
+            
       - name: Download Godot Headless Engine
-        shell: pwsh
         run: |
-            $url = "https://downloads.tuxfamily.org/godotengine/$Env:GODOT_VERSION/mono/Godot_v$Env:GODOT_VERSION-stable_mono_linux_headless_64.zip"
+            url=https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/mono/Godot_v$GODOT_VERSION-stable_mono_linux_headless_64.zip
             
-            New-Item -ItemType Directory -Force -Path .tools -Verbose            
-            Invoke-WebRequest -Uri $url -OutFile .tools/godot.zip -Verbose
-            Expand-Archive -path .tools/godot.zip -DestinationPath .tools/ -Verbose
-            Remove-Item .tools/godot.zip -Verbose
+            mkdir .tools
+            wget $url -P .tools/
+            unzip .tools/Godot_v$GODOT_VERSION-stable_mono_linux_headless_64.zip -d .tools
+            rm .tools/Godot_v$GODOT_VERSION-stable_mono_linux_headless_64.zip
       - name: Export
-        shell: pwsh
         run: |
-            New-Item -ItemType Directory -Force -Path .publish/$Env:TARGET -Verbose 
-            & ".tools/Godot_v$Env:GODOT_VERSION-stable_mono_linux_headless_64/Godot_v$Env:GODOT_VERSION-stable_mono_linux_headless.64" --export $Env:TARGET --path ./src
+            mkdir -p .publish/$TARGET 
+            .tools/Godot_v$GODOT_VERSION-stable_mono_linux_headless_64/Godot_v$GODOT_VERSION-stable_mono_linux_headless.64 --export $TARGET --path ./src
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: run-foxy-run-winx64
-          path: .publish/$TARGET
+          path: .publish/${{ env.TARGET }}
